@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Generator</title>
+    <link rel="stylesheet" href="/style.css">
+    <script defer src="/script.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="header_title">NFT Generator</h1>
+        <p class="header_notes">You can replace with your image path or try mine!</p>
+        <div class="header_option">
+            <button class="btn header_notes_btn" data-item="1">head-opion:</button>
+            <button class="btn header_notes_btn" data-item="2">eyes-opion:</button>
+            <button class="btn header_notes_btn" data-item="3">eyebrown-opion:</button>
+            <button class="btn header_notes_btn" data-item="4">nose-opion:</button>
+            <button class="btn header_notes_btn" data-item="5">mouth-opion:</button>
+        </div>
+        <ul class="header_list" data-option="1">
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256661/HEAD_5_hrt4qr.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256661/HEAD_2_cdiw9c.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256661/HEAD_3_mjtx4c.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256661/HEAD_1_mop3dd.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256661/HEAD_4_jsr1x0.png</li>
+
+        </ul>
+        <ul class="header_list disp-none" data-option="2">
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256661/EYES_2_zhp6g3.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/EYES_3_mamx8t.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/EYES_4_usqnz7.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256661/EYES_1_mvl3wn.png</li>
+        </ul>
+        <ul class="header_list disp-none" data-option="3">
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/EYEBROW_3_jd87px.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/EYEBROW_1_c2rgxj.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/EYEBROW_2_d4xe55.png</li>
+        </ul>
+        <ul class="header_list disp-none" data-option="4">
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/NOSE_2_nyogv7.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/NOSE_1_h6dkfr.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/NOSE_3_dkekdt.png</li>
+        </ul>
+        <ul class="header_list disp-none" data-option="5">
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/MOUTH_2_ycmbjh.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/MOUTH_3_io7ee9.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/MOUTH_4_znu1kd.png</li>
+            <li class="header_list_item">https://res.cloudinary.com/dn3c3zw9h/image/upload/v1645256662/MOUTH_1_ocrbcc.png</li>
+        </ul>
+    </header>
+    <section class="container">
+        <section class="controller">
+                <label class="controller_header">Image Path</label>
+
+                <!-- head -->
+
+                <div class="custom_field_wrapper custom_head_wrapper">
+                    <label class="custom_title">Head</label>
+
+                    <div class="custom_list">
+                            <div class="custom_field custom_head">
+                                <input type="" class="custom_path" value="">
+                                <div class="cta_wrapper">
+                                    <button class="btn custom_btn addinput ">+</button>
+                                    <button class="btn custom_btn removeinput disp-none">-</button>
+                                </div>
+                            </div>
+                    </div>
+              
+                </div>
+
+                <!-- eyes -->
+                <div class="custom_field_wrapper custom_eyes_wrapper">
+                    <label class="custom_title">Eyes</label>
+
+                    <div class="custom_list">
+                            <div class="custom_field custom_head">
+                                <input type="" class="custom_path" value="">
+                                <div class="cta_wrapper">
+                                    <button class="btn custom_btn addinput ">+</button>
+                                    <button class="btn custom_btn removeinput disp-none">-</button>
+                                </div>
+                            </div>
+                    </div>
+              
+                </div>
+
+          <!-- eyebrown -->
+          <div class="custom_field_wrapper custom_eyebrown_wrapper">
+            <label class="custom_title">eyebrown</label>
+
+            <div class="custom_list">
+                    <div class="custom_field custom_head">
+                        <input type="" class="custom_path" value="">
+                        <div class="cta_wrapper">
+                            <button class="btn custom_btn addinput ">+</button>
+                            <button class="btn custom_btn removeinput disp-none">-</button>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+
+             <!-- nose -->
+          <div class="custom_field_wrapper custom_nose_wrapper">
+            <label class="custom_title">nose</label>
+
+            <div class="custom_list">
+                    <div class="custom_field custom_head">
+                        <input type="" class="custom_path" value="">
+                        <div class="cta_wrapper">
+                            <button class="btn custom_btn addinput ">+</button>
+                            <button class="btn custom_btn removeinput disp-none">-</button>
+                        </div>
+                    </div>
+            </div>
+      </div>
+
+         <!-- mouth -->
+         <div class="custom_field_wrapper custom_mouth_wrapper">
+            <label class="custom_title">Mouth</label>
+
+            <div class="custom_list">
+                    <div class="custom_field custom_head">
+                        <input type="" class="custom_path" value="">
+                        <div class="cta_wrapper">
+                            <button class="btn custom_btn addinput ">+</button>
+                            <button class="btn custom_btn removeinput disp-none">-</button>
+                        </div>
+                    </div>
+            </div>
+      </div>
+       
+            <!-- generate -->
+                <button class="btn generate"> generate </button>
+
+        </section>
+
+        <div class="canvas_container" align="center">
+            <canvas id="canvas"></canvas>
+            <img class="downloadImg disp-none">
+            <button class="btn download disp-none"> download </button>
+        </div>
+    </section>
+</body>
+</html>

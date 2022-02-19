@@ -1,0 +1,113 @@
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(44, 44, 44);
+}
+
+a, p, button, label, input{
+    color: #fff;
+}
+
+.disp-none{
+    display: none;
+}
+
+.header_title{
+    color: #fff;
+    margin: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.header_notes{
+    text-align: center;
+}
+
+.header_list{
+    list-style: none;
+    color: rgb(73, 73, 73);
+    text-align: center;
+}
+
+.header_option{
+    margin: 10px;
+    text-align: center;
+}
+
+.container{
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1000px;
+    padding: 5%;
+}
+
+.custom_field{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.controller, .custom_field_wrapper, .custom_position{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.cta_wrapper{
+    flex-direction: row;
+    width: 30%;
+}
+
+.custom_path{
+    width: 66%;
+}
+
+.btn{
+    background-color: rgba(255, 255, 255, 0.473);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.header_notes_btn{
+    font-size: .5rem;
+}
+
+.custom_btn{
+    width: 47%;
+}
+
+.download{
+    margin-top: 10px;
+}
+
+
+input{
+    background-color: rgba(255, 255, 255, 0.473);
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+    padding: 10px;
+    width: 80%;
+}
+
+#canvas{
+    border: 3px solid black;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(14, 30, 82, 0.363);
+}
+
