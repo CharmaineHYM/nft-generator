@@ -14,8 +14,34 @@ a, p, button, label, input{
     color: #fff;
 }
 
+input{
+    background-color: rgba(255, 255, 255, 0.473);
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+    padding: 10px;
+    width: 80%;
+}
+
+#canvas{
+    border: 3px solid black;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(14, 30, 82, 0.363);
+}
+
 .disp-none{
     display: none;
+}
+
+.btn{
+    background-color: rgba(255, 255, 255, 0.473);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .header_title{
@@ -27,6 +53,10 @@ a, p, button, label, input{
 
 .header_notes{
     text-align: center;
+}
+
+.header_notes_btn{
+    font-size: .5rem;
 }
 
 .header_list{
@@ -72,42 +102,11 @@ a, p, button, label, input{
     width: 66%;
 }
 
-.btn{
-    background-color: rgba(255, 255, 255, 0.473);
-    border-radius: 5px;
-    border: none;
-    padding: 10px;
-    font-size: 1rem;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.header_notes_btn{
-    font-size: .5rem;
-}
-
 .custom_btn{
     width: 47%;
 }
 
 .download{
     margin-top: 10px;
-}
-
-
-input{
-    background-color: rgba(255, 255, 255, 0.473);
-    border-radius: 5px;
-    border: none;
-    height: 40px;
-    padding: 10px;
-    width: 80%;
-}
-
-#canvas{
-    border: 3px solid black;
-    width: 400px;
-    height: 400px;
-    background-color: rgba(14, 30, 82, 0.363);
 }
 
