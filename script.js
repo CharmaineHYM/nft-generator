@@ -124,8 +124,8 @@ let generator = function(e){
 
         // create canvas
         let ctx = canvas.getContext('2d');
-        canvas.width=400;
-        canvas.height=400;
+        canvas.width=300;
+        canvas.height=300;
         ctx.fillStyle = bgColor;
         ctx.fillRect(0, 0, 400, 400);
         ctx.drawImage(imghead, 0, 0);
