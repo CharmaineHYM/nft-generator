@@ -172,6 +172,7 @@ let generator = function(e){
         canvas.height=400;
         ctx.fillStyle = bgColor;
         ctx.fillRect(0, 0, 400, 400);
+        // You can change your image position here
         ctx.drawImage(imghead, 0, 0);
         ctx.drawImage(imgeyes, 0, -30);
         ctx.drawImage(imgeyeBrown, 0, -60);
