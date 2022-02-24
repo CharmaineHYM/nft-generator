@@ -120,7 +120,6 @@ function randomImg(cls, arr){
     for(let i = 0; i< path.length; i++){
         arr.push(path[i].src);
     }
-    console.log(arr)
     let el = new Image();
     el.setAttribute("crossOrigin",'Anonymous');
     let elnum = Math.floor(Math.random()*(path.length));
