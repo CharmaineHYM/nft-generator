@@ -23,6 +23,12 @@ let addInput = function(e){
 
     // remove input
     if(e.target.classList.contains('removeinput')){
+        if(e.target.querySelector('.thumbnail')){
+            let name = e.target.parentElement.dataset.item;
+            let index = e.target.querySelector('.thumbnail').src
+            `${name}ImgArr`.splice(index, 1)
+            console.log(typeof(`${name}ImgArr`))
+        }
         e.target.parentElement.remove();
     }
 
@@ -91,14 +97,18 @@ function updateThumbnail(drag_parentEl, file){
         reader.readAsDataURL(file);
         reader.onload = () => {
             thumbnailEl.src = reader.result;
+            let name = drag_parentEl.parentElement.parentElement.dataset.item;
+            console.log(name)
+            let source = drag_parentEl.querySelector('.thumbnail').src;
+            // console.log(typeof(`${name}ImgArr`))
+            // console.log(headImgArr)
+            // `${name}ImgArr`.push(thumbnailEl.src);
         } 
     }
 }
  
 // ------------------------------------------------------------------
 // build canvas
-
-
 
 let canvas = document.querySelector('canvas');
 
@@ -109,18 +119,15 @@ let eyebrownImgArr = []
 let noseImgArr = []
 let mouthImgArr = []
 
-
-
 let generate = document.querySelector('.generate');
 
 // Create Random Image
 function randomImg(cls, arr){
-    arr = [];
     let path = document.querySelectorAll(`.${cls} .thumbnail`);
     for(let i = 0; i< path.length; i++){
         arr.push(path[i].src);
     }
-    console.log(arr)
+
     let el = new Image();
     el.setAttribute("crossOrigin",'Anonymous');
     let elnum = Math.floor(Math.random()*(path.length));
