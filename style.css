@@ -48,7 +48,7 @@ header{
 }
 
 .square_btn{
-    width: 15%;
+    min-width: 15%;
     border-radius: 5px;
     padding: 10px;
     background-color: rgb(85, 85, 85);
