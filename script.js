@@ -23,6 +23,10 @@ let addInput = function(e){
 
     // remove input
     if(e.target.classList.contains('removeinput')){
+       if(e.target.parentElement.parentElement.querySelectorAll('.list_item').length < 2){
+           return
+       }
+        
         e.target.parentElement.remove();
     }
 
