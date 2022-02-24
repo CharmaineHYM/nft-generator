@@ -1,29 +1,102 @@
-// ------------------------------------------------------------------
-// Header image suggestion
-
-let headerBtn = document.querySelector('.header_option');
-let headerOption = document.querySelectorAll('.header_list')
-
-let showOption = function(e){
-    let i = e.target.dataset.item;
-    if(!(e.target.dataset.item)){
-        return
-    }
-    headerOption.forEach(function(e){
-        e.classList.add('disp-none');
-        
-    })
-    showOption = document.querySelector(`.header_list[data-option="${i}"]`);
-    showOption.classList.remove('disp-none')
-}
-
-headerBtn.addEventListener('click', showOption);
 
 // ------------------------------------------------------------------
 // input control
 
-let list = document.querySelectorAll('.custom_list');
-let value = document.querySelectorAll('.custom_path');
+let wrapper = document.querySelectorAll('.wrapper');
+
+// add or remove input
+let addInput = function(e){
+    let parentEl = e.target.parentElement;
+    // add input
+    if(e.target.classList.contains('addinput')){
+        const input = 
+        `<div class="list_item">
+            <span class="notes">Drop file here or click to upload</span>
+            <button class="btn circle_btn removeinput">-</button>
+            <input type="file" class="drop disp-none">
+        </div>`;
+        let input_lastEl = parentEl.querySelector('.list').lastElementChild;
+        input_lastEl.insertAdjacentHTML('afterend', input);
+    }
+
+    // remove input
+    if(e.target.classList.contains('removeinput')){
+        e.target.parentElement.remove()
+    }
+
+}
+
+wrapper.forEach(function(e){
+    e.addEventListener('click', addInput);
+})
+
+
+// ------------------------------------------------------------------
+// drag and drop
+
+const list = document.querySelectorAll('.list')
+list.forEach(function(e){
+    e.addEventListener('dragover', dragger)
+})
+
+function dragger(e){
+if(e.target.classList.contains('list_item')){
+
+drag = e.target.querySelectorAll('.drop')
+drag.forEach(drag => {
+    const drag_parentEl = drag.closest('.list_item');
+
+    drag_parentEl.addEventListener('dragover', e => {
+        e.preventDefault();
+        drag_parentEl.classList.add('selected_item')
+    })
+
+    drag_parentEl.addEventListener('dragleave', e =>{
+        drag_parentEl.classList.remove('selected_item')
+    })
+    drag_parentEl.addEventListener('dragend', e =>{
+        drag_parentEl.classList.remove('selected_item')
+    })
+
+    drag_parentEl.addEventListener('drop', e => {
+        e.preventDefault();
+        if(e.dataTransfer.files.length){
+            drag.files = e.dataTransfer.files;
+            updateThumbnail(drag_parentEl, e.dataTransfer.files[0])
+        }
+
+        drag_parentEl.classList.remove('selected_item')
+    })
+})
+
+}
+}
+
+
+function updateThumbnail(drag_parentEl, file){
+    let thumbnailEl = drag_parentEl.querySelector('.thumbnail');
+
+    if(drag_parentEl.querySelector('.notes')){
+        drag_parentEl.querySelector('.notes').remove();
+    }
+    if(!thumbnailEl){
+        thumbnailEl = document.createElement("img");
+        thumbnailEl.classList.add('thumbnail')
+        drag_parentEl.appendChild(thumbnailEl)
+    }
+
+    if(file.type.startsWith('image/')){
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            thumbnailEl.src = reader.result;
+        }
+    }
+}
+ 
+// ------------------------------------------------------------------
+// build canvas
+
 let canvas = document.querySelector('canvas');
 
 // element array
@@ -33,84 +106,50 @@ let eyeBrownImgArr = []
 let noseImgArr = []
 let mouthImgArr = []
 
-// add or remove input
-let addInput = function(e){
-    // add input
-    if(e.target.classList.contains('addinput')){
-        const input = 
-        `<div class="custom_field custom_head">
-            <input type="" class="custom_path" value="">
-            <div class="cta_wrapper">
-                <button class="btn custom_btn addinput">+</button>
-                <button class="btn custom_btn removeinput">-</button>
-            </div>
-        </div>`
-        e.target.parentElement.parentElement.insertAdjacentHTML('afterEnd', input);
-        e.target.parentElement.remove();
-    }
-
-    // remove input
-    if(e.target.classList.contains('removeinput')){
-        let btnWrapper = 
-        `<div class="cta_wrapper">
-            <button class="btn custom_btn addinput">+</button>
-            <button class="btn custom_btn removeinput">-</button>
-        </div>`
-        let prevEl = e.target.parentElement.parentElement.previousElementSibling
-        prevEl.insertAdjacentHTML('beforeEnd', btnWrapper)
-        e.target.parentElement.parentElement.remove();
-    }
-
-}
-
-list.forEach(function(e){
-    e.addEventListener('click', addInput);
-})
-
-// ------------------------------------------------------------------
-// build canvas
-
 let generate = document.querySelector('.generate');
 
 // Create Random Image
 function randomImg(cls, arr){
-    let path = document.querySelectorAll(`.${cls} .custom_path`);
+    let path = document.querySelectorAll(`.${cls} .thumbnail`);
     for(let i = 0; i< path.length; i++){
-        arr.push(path[i].value);
+        arr.push(path[i].src);
     }
 
     let el = new Image();
     el.setAttribute("crossOrigin",'Anonymous');
     let elnum = Math.floor(Math.random()*(path.length));
+    if(path.length){
     el.src = arr[elnum];
-
+    }else{
+        el.src = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`
+    }
     return el
 }
 
 let generator = function(e){
 
-    let imghead = randomImg('custom_head_wrapper', headImgArr);
+    let imghead = randomImg('head_wrapper', headImgArr);
     imghead.onload = function(){
             buildImg();
         }
 
-    let imgeyes = randomImg('custom_eyes_wrapper', eyesImgArr);
+    let imgeyes = randomImg('eyes_wrapper', eyesImgArr);
     imgeyes.onload = function(){
             buildImg();
         }
 
     
-    let imgeyeBrown = randomImg('custom_eyebrown_wrapper', eyeBrownImgArr);
+    let imgeyeBrown = randomImg('eyebrown_wrapper', eyeBrownImgArr);
     imgeyeBrown.onload = function(){
             buildImg();
         }
 
-    let imgnose = randomImg('custom_nose_wrapper', noseImgArr);
+    let imgnose = randomImg('nose_wrapper', noseImgArr);
     imgnose.onload = function(){
             buildImg();
         }
 
-    let imgmouth = randomImg('custom_mouth_wrapper', mouthImgArr);
+    let imgmouth = randomImg('mouth_wrapper', mouthImgArr);
     imgmouth.onload = function(){
             buildImg();
         }
