@@ -8,7 +8,7 @@
 
 body{
     background-color: rgb(44, 44, 44);
-    max-width: 1000px;
+    /* max-width: 1000px; */
     margin: auto;
 }
 
@@ -36,7 +36,7 @@ header{
     background-color: rgba(14, 30, 82, 0.363);
 }
 
-.disp-none{
+body .disp-none{
     display: none;
 }
 
@@ -66,27 +66,61 @@ header{
     background-color: rgb(85, 85, 85);
 }
 
+.header_option{
+    width: 100%;
+    text-align: left;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+.title{
+    padding: 10px 3%;
+    background-color: #000;
+    margin: 0 2px;
+    border-radius: 10px 10px 0 0;
+}
+
+.active, .title:hover{
+    color: chartreuse;
+    transform: scale(1.1);
+    transition: transform 300ms ease-in;
+}
+
 .header_title{
     margin: 20px;
+    color: chartreuse;
 }
 
 .container{
     margin: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     gap: 20px;
     padding: 5%;
     text-align: center;
 }
 
+.main{
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
 .controller, .wrapper, .canvas_container{
     display: flex;
     flex-direction: column;
-    gap: 10px;
     width: 100%;
     margin: 0 10px;
     align-items: center;
+}
+
+.wrapper{
+    background-color: #000;
+    align-items: flex-start;
+    padding: 30px;
+    border-radius: 20px;
+    gap: 20px;
 }
 
 .controller_header{
@@ -132,4 +166,20 @@ header{
 .thumbnail{
     width: 100%;
     background-size: cover;
+}
+
+@media only screen and (max-width: 1277px){
+    .container{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 610px){
+    .header_option{
+        margin-left: 53px;
+    }
+    .title{
+        font-size: .6rem;
+        margin: 0;
+    }
 }

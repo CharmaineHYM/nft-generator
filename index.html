@@ -14,20 +14,20 @@
         <p class="header_notes">You can change your image position from js file</p>
     </header>
     <main class="container">
-        <div class="canvas_container" align="center">
-            <canvas id="canvas"></canvas>
-            <img class="downloadImg disp-none">
-            <button class="btn square_btn download disp-none"> download </button>
-        </div>
-
-
         <section class="controller">
                 <h1 class="controller_header">Customize Your NFT Here !</h1>
 
-                <!-- head -->
+                <div class="header_option">
+                    <button class="btn title active" data-item="head">Head</button>
+                    <button class="btn title" data-item="eyes">Eyes</button>
+                    <button class="btn title" data-item="eyebrown">Eyebrow</button>
+                    <button class="btn title" data-item="nose">Nose</button>
+                    <button class="btn title" data-item="mouth">Mouth</button>
+                </div>
 
+                <!-- head -->
+                <div class="main">
                 <div class="wrapper head_wrapper" data-item="head">
-                        <label class="title">Head</label>
                             <button class="btn square_btn addinput">+</button>
                         <div class="list">
                             <div class="list_item">
@@ -39,8 +39,7 @@
                 </div>
 
                 <!-- eyes -->
-                    <div class="wrapper eyes_wrapper" data-item="eyes">
-                        <label class="title">Eyes</label>
+                    <div class="wrapper eyes_wrapper disp-none" data-item="eyes">
                             <button class="btn square_btn addinput">+</button>
                         <div class="list">
                             <div class="list_item">
@@ -52,8 +51,7 @@
                 </div>
 
                  <!-- eyebrown -->
-                    <div class="wrapper eyebrown_wrapper" data-item="eyebrown">
-                        <label class="title">Eyebrown</label>
+                    <div class="wrapper eyebrown_wrapper disp-none" data-item="eyebrown">
                             <button class="btn square_btn addinput">+</button>
                         <div class="list">
                             <div class="list_item">
@@ -65,8 +63,7 @@
                 </div>
 
                 <!-- nose -->
-                    <div class="wrapper nose_wrapper" data-item="nose">
-                        <label class="title">Nose</label>
+                    <div class="wrapper nose_wrapper disp-none" data-item="nose">
                             <button class="btn square_btn addinput">+</button>
                         <div class="list">
                             <div class="list_item">
@@ -78,8 +75,7 @@
                 </div>
 
                  <!-- mouth -->
-                    <div class="wrapper mouth_wrapper" data-item="mouth">
-                        <label class="title">Mouth</label>
+                    <div class="wrapper mouth_wrapper disp-none" data-item="mouth">
                             <button class="btn square_btn addinput">+</button>
                         <div class="list">
                             <div class="list_item">
@@ -89,11 +85,18 @@
                             </div>
                         </div>
                 </div>
+            </div>
        
             <!-- generate -->
                 <button class="btn square_btn generate"> generate </button>
 
         </section>
+        <div class="canvas_container" align="center">
+            <canvas id="canvas"></canvas>
+            <img class="downloadImg disp-none">
+            <button class="btn square_btn download disp-none"> download </button>
+        </div>
+
     </main>
 </body>
 </html>

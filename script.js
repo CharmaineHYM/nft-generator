@@ -2,6 +2,33 @@
 'use strict';
 
 // ------------------------------------------------------------------
+// header control
+
+let headerWrapper = document.querySelector('.header_option');
+let headerBtn = document.querySelectorAll('.title');
+let option = document.querySelectorAll('.wrapper');
+
+let showOption = function(e){
+    if(!(e.target.dataset.item)){
+        return
+    }
+    
+    let i = e.target.dataset.item;
+    headerBtn.forEach( e => e.classList.remove('active'));
+    e.target.classList.add('active');
+
+    option.forEach(function(e){
+        e.classList.add('disp-none');
+        
+    })
+
+    let show = document.querySelector(`.wrapper[data-item="${i}"]`);
+    show.classList.remove('disp-none');
+}
+headerWrapper.addEventListener('click', showOption);
+
+
+// ------------------------------------------------------------------
 // input control
 
 let wrapper = document.querySelectorAll('.wrapper');
