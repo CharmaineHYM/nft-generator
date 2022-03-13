@@ -156,7 +156,7 @@ body .disp-none{
 .notes{
     font-size: 1rem;
     position: absolute;
-    top: 90px;
+    top: 80px;
     color: rgb(254, 254, 254);
     text-align: center;
 }
@@ -191,10 +191,4 @@ body .disp-none{
 .thumbnail{
     width: 100%;
     background-size: cover;
-}
-
-@media only screen and (max-width: 1277px){
-    .container{
-        flex-direction: column;
-    }
 }

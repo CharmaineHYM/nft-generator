@@ -15,89 +15,86 @@
         <section class="controller">
             <h1 class="title">NFT Generator</h1>
             <!-- head -->
-            <div class="main">
-                <div class="wrapper head_wrapper" data-item="head">
-                    <div class="header">
-                        <h2 class="sub_title" data-item="head">Head</h2>
-                        <button class="btn circle_btn addinput">+</button>
-                    </div>
-                    <div class="list">
-                        <div class="list_item">
-                            <span class="notes">Drop file here to upload</span>
-                            <button class="btn circle_btn removeinput">x</button>
-                            <input type="file" class="drop disp-none">
-                        </div>
-                    </div>
+            <div class="wrapper head_wrapper">
+                <div class="header">
+                    <h2 class="sub_title">Head</h2>
+                    <button class="btn circle_btn addinput">+</button>
                 </div>
-
-                <!-- eyes -->
-                <div class="wrapper eyes_wrapper" data-item="eyes">
-                    <div class="header">
-                        <h2 class="sub_title" data-item="eyes">Eyes</h2>
-                        <button class="btn circle_btn addinput">+</button>
-                    </div>
-                    <div class="list">
-                        <div class="list_item">
-                            <span class="notes">Drop file here to upload</span>
-                            <button class="btn circle_btn removeinput">x</button>
-                            <input type="file" class="drop disp-none">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- eyebrow -->
-                <div class="wrapper eyebrow_wrapper" data-item="eyebrow">
-                    <div class="header">
-                        <h2 class="sub_title" data-item="eyebrow">Eyebrow</h2>
-                        <button class="btn circle_btn addinput">+</button>
-                    </div>
-                    <div class="list">
-                        <div class="list_item">
-                            <span class="notes">Drop file here to upload</span>
-                            <button class="btn circle_btn removeinput">x</button>
-                            <input type="file" class="drop disp-none">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- nose -->
-                <div class="wrapper nose_wrapper" data-item="nose">
-                    <div class="header">
-                        <h2 class="sub_title" data-item="nose">Nose</h2>
-                        <button class="btn circle_btn addinput">+</button>
-                    </div>
-                    <div class="list">
-                        <div class="list_item">
-                            <span class="notes">Drop file here to upload</span>
-                            <button class="btn circle_btn removeinput">x</button>
-                            <input type="file" class="drop disp-none">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- mouth -->
-                <div class="wrapper mouth_wrapper" data-item="mouth">
-                    <div class="header">
-                        <h2 class="sub_title" data-item="mouth">Mouth</h2>
-                        <button class="btn circle_btn addinput">+</button>
-                    </div>
-                    <div class="list">
-                        <div class="list_item">
-                            <span class="notes">Drop file here to upload</span>
-                            <button class="btn circle_btn removeinput">x</button>
-                            <input type="file" class="drop disp-none">
-                        </div>
+                <div class="list">
+                    <div class="list_item">
+                        <span class="notes">Drop file here to upload</span>
+                        <button class="btn circle_btn removeinput">x</button>
+                        <input type="file" class="drop disp-none">
                     </div>
                 </div>
             </div>
 
+            <!-- eyes -->
+            <div class="wrapper eyes_wrapper">
+                <div class="header">
+                    <h2 class="sub_title">Eyes</h2>
+                    <button class="btn circle_btn addinput">+</button>
+                </div>
+                <div class="list">
+                    <div class="list_item">
+                        <span class="notes">Drop file here to upload</span>
+                        <button class="btn circle_btn removeinput">x</button>
+                        <input type="file" class="drop disp-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- eyebrow -->
+            <div class="wrapper eyebrow_wrapper">
+                <div class="header">
+                    <h2 class="sub_title">Eyebrow</h2>
+                    <button class="btn circle_btn addinput">+</button>
+                </div>
+                <div class="list">
+                    <div class="list_item">
+                        <span class="notes">Drop file here to upload</span>
+                        <button class="btn circle_btn removeinput">x</button>
+                        <input type="file" class="drop disp-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- nose -->
+            <div class="wrapper nose_wrapper">
+                <div class="header">
+                    <h2 class="sub_title">Nose</h2>
+                    <button class="btn circle_btn addinput">+</button>
+                </div>
+                <div class="list">
+                    <div class="list_item">
+                        <span class="notes">Drop file here to upload</span>
+                        <button class="btn circle_btn removeinput">x</button>
+                        <input type="file" class="drop disp-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- mouth -->
+            <div class="wrapper mouth_wrapper">
+                <div class="header">
+                    <h2 class="sub_title">Mouth</h2>
+                    <button class="btn circle_btn addinput">+</button>
+                </div>
+                <div class="list">
+                    <div class="list_item">
+                        <span class="notes">Drop file here to upload</span>
+                        <button class="btn circle_btn removeinput">x</button>
+                        <input type="file" class="drop disp-none">
+                    </div>
+                </div>
+            </div>
         </section>
         <div class="canvas_container">
             <canvas id="canvas"></canvas>
             <img class="downloadImg disp-none" src="/" alt="canvas">
             <div class="cta">
                 <button class="btn square_btn generate"> generate </button>
-                <button class="btn square_btn download"> download </button>
+                <button class="btn square_btn download disp-none"> download </button>
             </div>
         </div>
 
