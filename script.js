@@ -1,32 +1,4 @@
-
 'use strict';
-
-// ------------------------------------------------------------------
-// header control
-
-let headerWrapper = document.querySelector('.header_option');
-let headerBtn = document.querySelectorAll('.title');
-let option = document.querySelectorAll('.wrapper');
-
-let showOption = function(e){
-    if(!(e.target.dataset.item)){
-        return
-    }
-    
-    let i = e.target.dataset.item;
-    headerBtn.forEach( e => e.classList.remove('active'));
-    e.target.classList.add('active');
-
-    option.forEach(function(e){
-        e.classList.add('disp-none');
-        
-    })
-
-    let show = document.querySelector(`.wrapper[data-item="${i}"]`);
-    show.classList.remove('disp-none');
-}
-headerWrapper.addEventListener('click', showOption);
-
 
 // ------------------------------------------------------------------
 // input control
@@ -34,14 +6,14 @@ headerWrapper.addEventListener('click', showOption);
 let wrapper = document.querySelectorAll('.wrapper');
 
 // add or remove input
-let addInput = function(e){
-    let parentEl = e.target.parentElement;
+let addInput = function (e) {
+    let parentEl = e.target.parentElement.parentElement;
     // add input
-    if(e.target.classList.contains('addinput')){
-        const input = 
-        `<div class="list_item">
+    if (e.target.classList.contains('addinput')) {
+        const input =
+            `<div class="list_item">
             <span class="notes">Drop file here or click to upload</span>
-            <button class="btn circle_btn removeinput">-</button>
+            <button class="btn circle_btn removeinput">x</button>
             <input type="file" class="drop disp-none">
         </div>`;
         let input_lastEl = parentEl.querySelector('.list').lastElementChild;
@@ -49,17 +21,17 @@ let addInput = function(e){
     }
 
     // remove input
-    if(e.target.classList.contains('removeinput')){
-       if(e.target.parentElement.parentElement.querySelectorAll('.list_item').length < 2){
-           return
-       }
-        
+    if (e.target.classList.contains('removeinput')) {
+        if (e.target.parentElement.parentElement.querySelectorAll('.list_item').length < 2) {
+            return
+        }
+
         e.target.parentElement.remove();
     }
 
 }
 
-wrapper.forEach(function(e){
+wrapper.forEach(function (e) {
     e.addEventListener('click', addInput);
 })
 
@@ -68,64 +40,64 @@ wrapper.forEach(function(e){
 // drag and drop
 
 const list = document.querySelectorAll('.list')
-list.forEach(function(e){
+list.forEach(function (e) {
     e.addEventListener('dragenter', dragger)
 })
 
-function dragger(e){
-if(e.target.classList.contains('list_item')){
+function dragger(e) {
+    if (e.target.classList.contains('list_item')) {
 
-let drag = e.target.querySelectorAll('.drop')
-drag.forEach(drag => {
-    const drag_parentEl = drag.closest('.list_item');
+        let drag = e.target.querySelectorAll('.drop')
+        drag.forEach(drag => {
+            const drag_parentEl = drag.closest('.list_item');
 
-    drag_parentEl.addEventListener('dragover', e => {
-        e.preventDefault();
-        drag_parentEl.classList.add('selected_item')
-    })
+            drag_parentEl.addEventListener('dragover', e => {
+                e.preventDefault();
+                drag_parentEl.classList.add('selected_item')
+            })
 
-    drag_parentEl.addEventListener('dragleave', e =>{
-        drag_parentEl.classList.remove('selected_item')
-    })
-    drag_parentEl.addEventListener('dragend', e =>{
-        drag_parentEl.classList.remove('selected_item')
-    })
+            drag_parentEl.addEventListener('dragleave', e => {
+                drag_parentEl.classList.remove('selected_item')
+            })
+            drag_parentEl.addEventListener('dragend', e => {
+                drag_parentEl.classList.remove('selected_item')
+            })
 
-    drag_parentEl.addEventListener('drop', e => {
-        e.preventDefault();
-        if(e.dataTransfer.files.length){
-            drag.files = e.dataTransfer.files;
-            updateThumbnail(drag_parentEl, e.dataTransfer.files[0])
-        }
-        drag_parentEl.classList.remove('selected_item')
-    })
-})
+            drag_parentEl.addEventListener('drop', e => {
+                e.preventDefault();
+                if (e.dataTransfer.files.length) {
+                    drag.files = e.dataTransfer.files;
+                    updateThumbnail(drag_parentEl, e.dataTransfer.files[0])
+                }
+                drag_parentEl.classList.remove('selected_item')
+            })
+        })
 
+    }
 }
-}
 
 
-function updateThumbnail(drag_parentEl, file){
+function updateThumbnail(drag_parentEl, file) {
     let thumbnailEl = drag_parentEl.querySelector('.thumbnail');
 
-    if(drag_parentEl.querySelector('.notes')){
+    if (drag_parentEl.querySelector('.notes')) {
         drag_parentEl.querySelector('.notes').remove();
     }
-    if(!thumbnailEl){
+    if (!thumbnailEl) {
         thumbnailEl = document.createElement("img");
         thumbnailEl.classList.add('thumbnail')
         drag_parentEl.appendChild(thumbnailEl)
     }
 
-    if(file.type.startsWith('image/')){
+    if (file.type.startsWith('image/')) {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
             thumbnailEl.src = reader.result;
-        } 
+        }
     }
 }
- 
+
 // ------------------------------------------------------------------
 // build canvas
 
@@ -136,7 +108,7 @@ let canvas = document.querySelector('canvas');
 // element array
 let headImgArr = []
 let eyesImgArr = []
-let eyebrownImgArr = []
+let eyebrowImgArr = []
 let noseImgArr = []
 let mouthImgArr = []
 
@@ -145,62 +117,62 @@ let mouthImgArr = []
 let generate = document.querySelector('.generate');
 
 // Create Random Image
-function randomImg(cls, arr){
+function randomImg(cls, arr) {
     arr = [];
     let path = document.querySelectorAll(`.${cls} .thumbnail`);
-    for(let i = 0; i< path.length; i++){
+    for (let i = 0; i < path.length; i++) {
         arr.push(path[i].src);
     }
     let el = new Image();
-    el.setAttribute("crossOrigin",'Anonymous');
-    let elnum = Math.floor(Math.random()*(path.length));
-    if(path.length){
-    el.src = arr[elnum];
-    }else{
+    el.setAttribute("crossOrigin", 'Anonymous');
+    let elnum = Math.floor(Math.random() * (path.length));
+    if (path.length) {
+        el.src = arr[elnum];
+    } else {
         el.src = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=`
     }
     return el
 }
 
-let generator = function(e){
+let generator = function (e) {
 
     let imghead = randomImg('head_wrapper', headImgArr);
-    imghead.onload = function(){
-            buildImg();
-        }
+    imghead.onload = function () {
+        buildImg();
+    }
 
     let imgeyes = randomImg('eyes_wrapper', eyesImgArr);
-    imgeyes.onload = function(){
-            buildImg();
-        }
+    imgeyes.onload = function () {
+        buildImg();
+    }
 
-    
-    let imgeyeBrown = randomImg('eyebrown_wrapper', eyebrownImgArr);
-    imgeyeBrown.onload = function(){
-            buildImg();
-        }
+
+    let imgeyeBrown = randomImg('eyebrow_wrapper', eyebrowImgArr);
+    imgeyeBrown.onload = function () {
+        buildImg();
+    }
 
     let imgnose = randomImg('nose_wrapper', noseImgArr);
-    imgnose.onload = function(){
-            buildImg();
-        }
+    imgnose.onload = function () {
+        buildImg();
+    }
 
     let imgmouth = randomImg('mouth_wrapper', mouthImgArr);
-    imgmouth.onload = function(){
-            buildImg();
-        }
+    imgmouth.onload = function () {
+        buildImg();
+    }
 
-    function buildImg(){
-         // create random background color
-        let r=Math.floor(Math.random() * (255 - 100 + 1) +100);
-        let g=Math.floor(Math.random() * (255 - 100 + 1) +100);
-        let b=Math.floor(Math.random() * (255 - 100 + 1) +100);
+    function buildImg() {
+        // create random background color
+        let r = Math.floor(Math.random() * (255 - 100 + 1) + 100);
+        let g = Math.floor(Math.random() * (255 - 100 + 1) + 100);
+        let b = Math.floor(Math.random() * (255 - 100 + 1) + 100);
         let bgColor = `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`
 
         // create canvas
         let ctx = canvas.getContext('2d');
-        canvas.width=400;
-        canvas.height=400;
+        canvas.width = 400;
+        canvas.height = 400;
         ctx.fillStyle = bgColor;
         ctx.fillRect(0, 0, 400, 400);
         // You can change your image position here
@@ -210,8 +182,8 @@ let generator = function(e){
         ctx.drawImage(imgnose, 0, 10);
         ctx.drawImage(imgmouth, 0, 60);
     }
-        
-        download.classList.remove('disp-none');
+
+    download.classList.remove('disp-none');
 }
 
 
@@ -223,11 +195,11 @@ generate.addEventListener('click', generator);
 let downloadImg = document.querySelector('.downloadImg');
 let download = document.querySelector('.download');
 
-let downloader = function(e){
+let downloader = function (e) {
     e.preventDefault();
 
     const dataURL = canvas.toDataURL("image/png");
-   downloadImg.src = dataURL;
+    downloadImg.src = dataURL;
     const a = document.createElement('a');
     document.body.appendChild(a);
     a.href = dataURL;
